@@ -1,0 +1,73 @@
+Q1. Knowledge Representation (10 marks)
+Create a Prolog knowledge base to represent the following information:
+
+Courses and their prerequisites.
+
+Professors teaching courses.
+
+Students enrolled in courses.
+
+Departments offering courses.
+
+Example data to include:
+
+Courses: cs101, cs201, cs301, math201, ai401.
+
+Prerequisites: cs201 requires cs101, cs301 requires cs201, ai401 requires both cs301 and math201.
+
+Professors: dr_smith teaches cs101, dr_lee teaches ai401.
+
+Students: alice enrolled in cs101, bob in cs201, carol in ai401.
+
+Departments: computer_science offers cs101, cs201, cs301, ai401; mathematics offers math201.
+
+I included some extra facts here (if you want to enhance and test your logic )   download here https://eclass.yorku.ca/pluginfile.php/7591020/mod_assign/intro/Extra-facts.txt?time=1759081104223
+
+Q2. Reasoning with Rules (10 marks)
+Define rules in Prolog for the following:
+
+can_take(Student, Course) – a student can take a course if they are enrolled in all its prerequisites.
+
+teaches(Professor, Student) – a professor teaches a student if the professor teaches a course in which the student is enrolled.
+
+same_department(Course1, Course2) – two courses are from the same department if they are offered by the same department.
+
+Q3. Recursive Reasoning (10 marks)
+Define a recursive rule:
+
+prerequisite_chain(Course, PreCourse) – true if PreCourse is a direct or indirect prerequisite of Course.
+
+Example: prerequisite_chain(ai401, cs101) should succeed.
+
+Q4. Queries (10 marks)
+Write Prolog queries (with expected results) for the following:
+
+Which courses can Alice take?
+
+Which students are taught by Dr. Lee?
+
+Which courses are in the Computer Science department?
+
+What are all indirect prerequisites of ai401?
+
+Q5. Extension (10 marks)
+Extend your knowledge base to represent course scheduling conflicts (e.g., cs201 and math201 occur at the same time).
+
+Define a predicate conflict(Student, Course1, Course2) that is true if a student is enrolled in two courses scheduled at the same time.
+
+Hint:  (sample data)
+
+
+time(cs101, mon_9am).
+time(cs201, tue_9am).
+time(cs301, wed_9am).
+time(math201, tue_9am).
+time(ai401, thu_11am).
+
+Submission Instructions
+Submit a single Prolog file named assignment1.pl.
+
+Include comments explaining your facts and rules.
+
+Provide a short text file queries.txt with your test queries and expected answers.
+
