@@ -1,0 +1,41 @@
+% test querries
+% Which courses can Alice take?
+	?- can_take(alice, Course).
+	% expected result:
+ 	Course = cs101;
+	% Keep pressing ";" for all the results
+	Course = cs201 ;
+	Course = math201 ;
+
+% Which students are taught by Dr. Lee?
+	?- teaches_student(dr_lee, Student).
+	% expected result:
+	Student = carol.
+
+% Which courses are in the Computer Science department?
+	?- offers(computer_science, Course).
+	% expected result:
+	Course = cs101 ;
+	% Keep pressing ";" for all the results:
+	Course = cs201 ;
+	Course = cs301 ;
+	Course = ai401.
+
+% What are all indirect prerequisites of ai401?
+	?- prerequisite_chain(ai401, PreCourse).
+	% expected result:
+	PreCourse = cs301 ;
+	% Keep pressing ";" for all the results:
+	PreCourse = math201 ;
+	PreCourse = cs201 ;
+	PreCourse = cs101 ;
+
+% Course Scheduling Conflict;
+	?- conflict(bob, C1, C2).
+	% expected result:
+	C1 = cs201,
+	C2 = math201
+
+	?- conflict(bob, cs201, math201).
+	% expected result
+	true 
